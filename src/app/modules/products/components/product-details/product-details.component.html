@@ -1,0 +1,27 @@
+<div class="card mb-4">
+    <img [src]="product.ProductImg" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{product.ProductName}}</h5>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <span>{{product.ProductPrice | currency}}</span>
+        @if (!product.isEdit) {
+            <span>
+                Pieces: 
+                <span 
+                    class="badge"
+                    [ngClass]="product.AvailablePieces > 5 ? 'text-bg-success' : 'text-bg-danger'">
+                    {{product.AvailablePieces}}
+                </span>
+                @if (product.AvailablePieces <= 5) {
+                    <span class="mx-1 fs-bold cursor-pointer" (click)="product.isEdit = true">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </span>
+                }
+            </span>
+        }
+        @else {
+            <app-add-quantity [product]="product" (quantityAdded)="product.isEdit = false"></app-add-quantity>
+        }
+      </div>
+    </div>
+</div>

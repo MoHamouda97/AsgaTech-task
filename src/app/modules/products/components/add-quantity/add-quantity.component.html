@@ -1,0 +1,12 @@
+<form [formGroup]="form">
+    <div class="d-flex">
+        <button class="btn position-absolute" (click)="updateQuantity()">
+            <i class="fa-solid fa-check"></i>
+        </button>
+        <input 
+            type="number" 
+            class="form-control input-number text-center p-relative" 
+            formControlName="quantity"
+            min="1">
+    </div>
+</form>
