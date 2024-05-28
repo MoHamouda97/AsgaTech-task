@@ -1,5 +1,5 @@
 import { LoadingService } from "./loading.service";
 
-export const services = [ 
+export const SERVICES = [ 
     LoadingService
 ]

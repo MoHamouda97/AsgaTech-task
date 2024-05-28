@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
-import { interceptors } from './providers/interseptors';
-import { components } from './components/components';
-import { common } from './modules/common';
-import { services } from './services/services';
+import { INTERCEPTORS } from './providers/interseptors';
+import { COMPONENTS } from './components/components';
+import { COMMON } from './modules/common';
+import { SERVICES } from './services/services';
 
 @NgModule({
     imports: [
-        ...common,
-        ...components
+        ...COMMON,
+        ...COMPONENTS
     ],
     exports: [
-        ...common,
-        ...components
+        ...COMMON,
+        ...COMPONENTS
     ],
     providers: [
-        ...interceptors,
-        ...services
+        ...INTERCEPTORS,
+        ...SERVICES
     ]
 })
 

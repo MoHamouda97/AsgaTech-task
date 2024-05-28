@@ -1,5 +1,5 @@
 import { LoadingComponent } from "./loading/loading.component";
 
-export const components = [
+export const COMPONENTS = [
     LoadingComponent
 ]
