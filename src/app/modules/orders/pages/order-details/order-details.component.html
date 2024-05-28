@@ -1,0 +1,88 @@
+@if (orderDetails) {
+    <div class="container">
+        <div class="row border p-4 text-center mb-4">
+            <div class="col-md-3">
+                <span class="fw-bold">Order Id:</span>    
+                {{orderDetails.OrderId}}         
+            </div>
+            <div class="col-md-3">
+                <span class="fw-bold">Order Date:</span>
+                {{orderDetails.OrderDate | date}}
+            </div>
+            <div class="col-md-3">
+                <span class="fw-bold">Total:</span>
+                {{orderDetails.TotalPrice | currency}}
+            </div>
+            <div class="col-md-3">
+                <span 
+                    class="badge"
+                    [ngClass]="orderDetails.PaymentType.toLowerCase() === 'online' ? 'text-bg-warning' : 'text-bg-light'">
+                    {{orderDetails.PaymentType}}
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-7 mb-4">
+            <span class="d-block fw-bold fs-1 mb-3">Products:</span>
+            @for (item of orderDetails.Products; track $index) {
+                <div class="border p-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <img [src]="item?.Product?.ProductImg" class="img-thumbnail" style="height: 200px;" />
+                        <div class="details mx-4">
+                            <p>
+                                <span class="fw-bold fs-2">{{item?.Product?.ProductName}}</span>
+                            </p>
+                            <span class="fw-bold">
+                                Quantity: 
+                                <span class="badge text-bg-primary"> {{item.Quantity}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-5 mb-4">
+            <span class="d-block fw-bold fs-1 mb-3">User:</span>
+    
+            <div class="border p-4 mb-4 position-sticky" style="top: 10px;">
+                @if (orderDetails.User) {
+                    <div class="user-info">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="d-block fw-bold fs-5">Name:</span>
+                            <span class="d-block">{{orderDetails.User.Name}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="d-block fw-bold fs-5">Email:</span>
+                            <span class="d-block">{{orderDetails.User.Email}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="d-block fw-bold fs-5">Phone:</span>
+                            <span class="d-block">{{orderDetails.User.Phone}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="d-block fw-bold fs-5">Register Date:</span>
+                            <span class="d-block">{{orderDetails.User.RegisterDate | date}}</span>
+                        </div>
+                    </div>
+    
+                    <div class="user-address">
+                        <span class="d-block fw-bold fs-3 mb-2">Address:</span>
+                        <p>
+                            {{orderDetails.User.Address}}
+                        </p>
+                    </div>
+                } @else {
+                    <div class="alert alert-warning mb-0 text-center" role="alert">
+                        Not Available!!
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+} @else {
+    <div class="alert alert-danger text-center" role="alert">
+       Something wen wron, please try again later.
+    </div>
+}

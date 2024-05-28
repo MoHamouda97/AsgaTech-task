@@ -9,6 +9,10 @@ export const routes: Route[] = [
             {
                 path: 'products',
                 loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule)
+            },
+            {
+                path: 'orders',
+                loadChildren: () => import('./modules/orders/orders.module').then(m => m.OrdersModule)
             }
         ]
     },

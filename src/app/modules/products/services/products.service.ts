@@ -4,7 +4,9 @@ import { environment } from '../../../../environments/environment';
 import { Observable, catchError, of, tap } from 'rxjs';
 import { Product } from '../types/product.type';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductsService {
   products: Product[] = [];
 
