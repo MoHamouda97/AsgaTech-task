@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { CoreModule } from './core/core.module';
 import { routes } from './app.routing';
 import { LayoutModule } from './layout/layout.module';
+import { SharedModule } from './shared/shared.module';
 
 const routerConfig: ExtraOptions = {
   preloadingStrategy: PreloadAllModules,
@@ -23,7 +24,8 @@ const routerConfig: ExtraOptions = {
     BrowserAnimationsModule,
     ToastrModule.forRoot(), 
     CoreModule,
-    LayoutModule
+    LayoutModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

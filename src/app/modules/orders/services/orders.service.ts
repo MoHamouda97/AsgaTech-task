@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { Observable, catchError, concatMap, filter, map, of, tap } from 'rxjs';
+import { Observable, catchError, concatMap, map, of, tap } from 'rxjs';
 import { Order } from '../types/order.type';
 import { ProductsService } from '../../products/services/products.service';
 import { UsersService } from '../../../shared/services/users.service';
-import { Product } from '../../products/types/product.type';
-import { User } from '../../../shared/types/user.type';
 
 @Injectable({
   providedIn: 'root'
